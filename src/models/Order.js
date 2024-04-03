@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/dbConfig");
 const Product = require("./Product");
+const User = require("./User");
 
 class Order extends Model {}
 
@@ -12,6 +13,9 @@ Order.init(
       autoIncrement: true,
     },
     productId: {
+      type: DataTypes.BIGINT,
+    },
+    userId: {
       type: DataTypes.BIGINT,
     },
     date: {
@@ -49,5 +53,6 @@ Order.init(
 );
 
 Order.belongsTo(Product, { foreignKey: "productId", as: "products" });
+Order.belongsTo(User, { foreignKey: "userId", as: "users" });
 
 module.exports = Order;

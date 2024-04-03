@@ -19,6 +19,7 @@ function sendOtp(phone) {
 const verifyOtp = async (req, res) => {
   try {
     const { phone, otp } = req.body;
+    const userData = await User.findOne({ where: { phone: phone } });
     return true;
   } catch (err) {
     console.log(err);

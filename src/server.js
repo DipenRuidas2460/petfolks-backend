@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 });
 
 const unSecureRoutes = require("./routes/unsequreRoutes");
-const secureRoutes = require("./routes/secureRoutes");
+const secureRoutes = require("./routes/sequreRoutes");
 const { validateTokenMiddleware } = require("./middleware/auth");
 
 app.use("/api", unSecureRoutes);
